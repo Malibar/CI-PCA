@@ -430,7 +430,7 @@ void Recognition(char *inputimage, eigen_type **mean_d, eigen_type **projectedim
 	float elapsedTime;
 
 	int blocksize=32;
-	printf("%s\n", inputimage);
+	printf("\n%s", inputimage);
 	
 	cudaEventCreate(&start);
 	cudaEventCreate(&stop);
@@ -474,7 +474,7 @@ void Recognition(char *inputimage, eigen_type **mean_d, eigen_type **projectedim
 	cudaEventElapsedTime(&elapsedTime,start,stop);
 	printf("\nOverall Speed:\t\t\t\t%lf (ms)\n", elapsedTime);
 	
-//	sprintf(outputtext, "%s matches image index %d.ppm\n", inputimage, min_index + 1);
+	printf("%s matches image index %d.ppm\n", inputimage, min_index + 1);
 //	printf("%s", outputtext);
 
 //	free(projectedtestimage);

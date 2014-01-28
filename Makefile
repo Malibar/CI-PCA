@@ -16,6 +16,12 @@ all: clean totalprogram
 totalprogram: grayscale.o matrix_ops.o pca_host.o pca.o ppm.o
 	nvcc grayscale.o matrix_ops.o pca_host.o pca.o ppm.o -o pca -lcublas
 	
+interface: grayscale.o matrix_ops.o pca_host.o classify_image.o ppm.o
+	nvcc grayscale.o matrix_ops.o pca_host.o classify_image.o ppm.o -o classify_image -lcublas
+
+classify_image.o: classify_image.cu
+	nvcc -c classify_image.cu
+	
 grayscale.o: grayscale.cu
 	nvcc -c grayscale.cu
 
